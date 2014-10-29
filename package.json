@@ -17,5 +17,5 @@
     "jquery": "x.x.x"
   },
   "devDependencies": {},
-  "main": "modal.js"
+  "main": "index.js"
 }
