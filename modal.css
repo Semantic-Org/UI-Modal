@@ -250,7 +250,11 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+<<<<<<< HEAD
   box-shadow: 0px 0px 0px 0px;
+=======
+  box-shadow: none;
+>>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723
   color: #ffffff;
 }
 .ui.basic.modal > .header,
@@ -426,9 +430,12 @@
          Theme Overrides
 *******************************/
 
+<<<<<<< HEAD
 
 
 /*******************************
          Site Overrides
 *******************************/
 
+=======
+>>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723

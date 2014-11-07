@@ -263,14 +263,22 @@ module.exports = function(parameters) {
                     animation : settings.transition + ' in',
                     queue     : false,
                     duration  : settings.duration,
+<<<<<<< HEAD
                     onStart   : function() {
+=======
+                    start     : function() {
+>>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723
                       module.cacheSizes();
                       module.set.position();
                       module.set.screenHeight();
                       module.set.type();
                       module.set.clickaway();
                     },
+<<<<<<< HEAD
                     onComplete : function() {
+=======
+                    complete  : function() {
+>>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723
                       $.proxy(settings.onVisible, element)();
                       module.add.keyboardShortcuts();
                       module.save.focus();
@@ -346,6 +354,7 @@ module.exports = function(parameters) {
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition({
+<<<<<<< HEAD
                 debug      : settings.debug,
                 animation  : settings.transition + ' out',
                 queue      : false,
@@ -354,6 +363,16 @@ module.exports = function(parameters) {
                   module.remove.keyboardShortcuts();
                 },
                 onComplete : function() {
+=======
+                debug     : settings.debug,
+                animation : settings.transition + ' out',
+                queue     : false,
+                duration  : settings.duration,
+                start     : function() {
+                  module.remove.keyboardShortcuts();
+                },
+                complete  : function() {
+>>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723
                   $.proxy(settings.onHidden, element)();
                   module.remove.active();
                   module.restore.focus();
