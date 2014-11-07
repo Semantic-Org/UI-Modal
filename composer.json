@@ -14,9 +14,5 @@
     "jquery": "x.x.x"
   },
   "main": "modal.js",
-<<<<<<< HEAD
   "version": "1.0.0-beta"
-=======
-  "version": "1.0.0"
->>>>>>> 9bb2be7eafe8cbdc4de1fa710ffd934ee66f7723
 }
