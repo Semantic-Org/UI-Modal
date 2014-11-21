@@ -67,6 +67,7 @@ module.exports = function(parameters) {
 
         element      = this,
         instance     = $module.data(moduleNamespace),
+        observer,
         module
       ;
       module  = {
@@ -78,6 +79,7 @@ module.exports = function(parameters) {
             module.error(error.dimmer);
             return;
           }
+
           $dimmable = $context
             .dimmer({
               debug      : settings.debug,
@@ -90,25 +92,18 @@ module.exports = function(parameters) {
               }
             })
           ;
-
           if(settings.detachable) {
             $dimmable.dimmer('add content', $module);
           }
 
-          $dimmer = $dimmable
-            .dimmer('get dimmer')
-          ;
-
+          $dimmer = $dimmable.dimmer('get dimmer');
           $otherModals = $module.siblings(selector.modal);
           $allModals   = $otherModals.add($module);
 
           module.verbose('Attaching close events', $close);
-          $close
-            .on('click' + eventNamespace, module.event.close)
-          ;
-          $window
-            .on('resize' + eventNamespace, module.event.resize)
-          ;
+          module.bind.events();
+          module.observeChanges();
+
           module.instantiate();
         },
 
@@ -126,12 +121,22 @@ module.exports = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
-          $close
-            .off(eventNamespace)
-          ;
-          $context
-            .dimmer('destroy')
-          ;
+          $close.off(eventNamespace);
+          $context.dimmer('destroy');
+        },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.debug('DOM tree modified, refreshing');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
         },
 
         refresh: function() {
@@ -159,6 +164,17 @@ module.exports = function(parameters) {
           }
           else {
             module.error(error.notFound, selector);
+          }
+        },
+
+        bind: {
+          events: function() {
+            $close
+              .on('click' + eventNamespace, module.event.close)
+            ;
+            $window
+              .on('resize' + eventNamespace, module.event.resize)
+            ;
           }
         },
 
@@ -257,6 +273,10 @@ module.exports = function(parameters) {
               $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
+                module.cacheSizes();
+                module.set.position();
+                module.set.screenHeight();
+                module.set.type();
                 $module
                   .transition({
                     debug     : settings.debug,
@@ -264,10 +284,6 @@ module.exports = function(parameters) {
                     queue     : false,
                     duration  : settings.duration,
                     onStart   : function() {
-                      module.cacheSizes();
-                      module.set.position();
-                      module.set.screenHeight();
-                      module.set.type();
                       module.set.clickaway();
                     },
                     onComplete : function() {
@@ -462,7 +478,7 @@ module.exports = function(parameters) {
           var
             modalHeight = $module.outerHeight()
           ;
-          if(modalHeight !== 0) {
+          if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
               height        : modalHeight + settings.offset,
@@ -523,6 +539,9 @@ module.exports = function(parameters) {
               $body
                 .css('height', module.cache.height + settings.padding)
               ;
+            }
+            else {
+              $body.css('height', '');
             }
           },
           active: function() {
