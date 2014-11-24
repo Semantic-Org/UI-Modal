@@ -1,7 +1,7 @@
-### Version 1.0.0 - XX XX, 2014
+### Version 1.0.0 - November 24, 2014
 
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
-- **Modal** - AllowMultiple (allowing multiple modals at once) is now set to **false** by default.
+- **Modal** - allowMultiple (allowing multiple modals at once) is now set to **false** by default.
 
 ### Version 0.15.0 - Mar 14, 2014
 
