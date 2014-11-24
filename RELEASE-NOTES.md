@@ -3,6 +3,24 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 - **Modal** - allowMultiple (allowing multiple modals at once) is now set to **false** by default.
 
+### Version 0.19.1 - Sep 5, 2014
+
+- **Modal** - (Backport from 1.0 branch) Fixes issue where modal sometimes appears too low on second show
+
+### Version 0.18.0 - June 6, 2014
+
+- **Modal** - Modals now focus on first input if available **Thanks Knotix**
+- **Modal** - Docs now have HTML examples
+
+### Version 0.17.0 - May 9, 2014
+
+- **Modal** - Element does not accurately close other modals when initialized at different times **Thanks nojhamster**
+- **Modal** - Fixes javascript error for browsers that don't support CSS animations if jquery.easing is not included
+
+### Version 0.16.0 - April 22, 2014
+
+- **Modal** - Fixes issue where position sometimes appeared too low on second show
+
 ### Version 0.15.0 - Mar 14, 2014
 
 - **Modal** - Modals now have an onVisible and onHidden callback for after animation ends
@@ -13,7 +31,7 @@
 
 - **Modal** - Modal now uses requestAnimationFrame instead of debounced callback
 
-### Version 0.13.1- Feb 28, 2014
+### Version 0.13.1 - Feb 28, 2014
 
 - **Modal** - Fixes modal positioning appearing slightly below center on second load
 
