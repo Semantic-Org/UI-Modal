@@ -1,3 +1,19 @@
+### Version 1.3.2 - December 17, 2014
+
+- **Modal** - Fixed issue with modal dimmer appearing cut off in some browsers, and not hiding
+
+### Version 1.3.0 - December 17, 2014
+
+- **Modal** - Fixed issue with modal losing scroll position on mobile
+- **Modal/Dimmer** - Fixed issues with modal hiding during showing and showing during hiding, fixed issues with "hiding other" modals while a modal is mid-animation.
+
+### Version 1.2.0 - December 08, 2014
+
+- **Modal** - Default modal shadow now more subtle
+- **Modal** - Fixes issues with multiple modals sometimes not closing dimmers
+- **Modal** - When a second modal that is not scrolling is opened after a scrolling modal it no longer causes the first modal to not be scrollable
+- **Modal** - "Hammer" clicking multiple times on a hiding dimmer no longer causes animation issues
+
 ### Version 1.0.0 - November 24, 2014
 
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
