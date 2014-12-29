@@ -1,3 +1,7 @@
+### Version 1.4.0 - December 22, 2014
+
+- **Modal** - Modal now accepts custom dimmer settings with setting `dimmerSettings``
+
 ### Version 1.3.2 - December 17, 2014
 
 - **Modal** - Fixed issue with modal dimmer appearing cut off in some browsers, and not hiding
