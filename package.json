@@ -1,0 +1,25 @@
+{
+  "name": "semantic-ui-modal",
+<<<<<<< HEAD
+  "version": "1.0.0-beta",
+=======
+  "version": "1.7.2",
+>>>>>>> 898830dc87c6835e68698ee168b4243e34fca803
+  "title": "Semantic UI - Modal",
+  "description": "Single component release of modal",
+  "homepage": "http://www.semantic-ui.com",
+  "author": "Jack Lukic <jack@semantic-ui.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Semantic-Org/UI-Modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "jquery": "x.x.x"
+  },
+  "main": "index.js"
+}

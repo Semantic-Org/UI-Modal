@@ -1,0 +1,27 @@
+{
+  "name": "semantic/modal",
+  "description": "Single component release of modal",
+  "homepage": "http://www.semantic-ui.com",
+  "authors": [{
+    "name": "Jack Lukic",
+    "email": "jacklukic@gmail.com",
+    "web": "http://www.jacklukic.com",
+    "role": "Creator"
+  }],
+  "keywords": [
+    "semantic",
+    "ui",
+    "css",
+    "framework"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "x.x.x"
+  },
+  "main": "modal.js",
+<<<<<<< HEAD
+  "version": "1.0.0-beta"
+=======
+  "version": "1.7.2"
+>>>>>>> 898830dc87c6835e68698ee168b4243e34fca803
+}
