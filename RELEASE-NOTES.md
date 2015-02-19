@@ -1,3 +1,7 @@
+### Version 1.9.2 - February 19, 2015
+
+- **Modal** - Fixes typo causing `middle aligned` image not to work correctly.
+
 ### UI Changes
 
 - **Modal** - Modal now swaps to `scrolling modal` when `close icon` no longer can be displayed, instead of modal `content`
