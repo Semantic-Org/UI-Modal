@@ -1,3 +1,8 @@
+### Version 1.11.0 - March 3, 2015
+
+- **Modal** - Modal no longer hides and reshows dimmer when opening a modal with another modal open with `exclusive: true`
+- **Modal** - Fixed issue with modal not appearing when calling `show` during another modal `hide`
+
 ### Version 1.9.2 - February 19, 2015
 
 - **Modal** - Fixes typo causing `middle aligned` image not to work correctly.
