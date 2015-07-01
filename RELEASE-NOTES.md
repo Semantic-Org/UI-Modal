@@ -1,3 +1,7 @@
+### Version 2.0.1 - June 30, 2015
+
+- **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
+
 ### Version 2.0.0 - June 30, 2015
 
 - **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
