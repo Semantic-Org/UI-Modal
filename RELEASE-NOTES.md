@@ -1,3 +1,20 @@
+### Version 2.0.0 - June 30, 2015
+
+- **Modal** - If you are using a modal with image content, you will need to use `image content` on the parent element. This is because `flex` rules require parent styling that the previous `table-row` rules did not.
+- **Modal** - Modal will now only close on buttons matching `deny` or `approve` selector. Any button that should hide modal on click should either match one of these selectors, or call `$('.ui.modal').modal('hide')` `onclick`.
+- **Modal** - Added new settings `blurring` and `inverted` which automatically set a modal's dimmer to either inverted or blurring.
+- **Modal** - Modal now uses an adjusted `scale in` transition in the default theme, that should be more subtle and work better with long modal content.
+- **Modal** - Modal `onApprove` and `onDeny` now receive the activating element as the first parameter. Added documentation about using `return false` to avoid hiding element on click.
+- **Modal** - Modal content now uses flex, image content now requires `image content` class on parent to allow for flex stylings.
+- **Modal** - Modal no longer hides page scroll bar causing dimmed page content to jump positions.
+- **Modal** - Fixed bug where clicking an element detached from dom would cause modal to hide prematurely
+- **Modal** - Clicking on other modals will no longer close open modal when `allowMultiple: true`
+- **Modal** - Fixed `scrolling` class not being removed after opening a normal modal after a `scrolling` modal.
+- **Modal** - `scrollable modal` now correctly adds padding below modal
+- **Modal** - Modal with `detachable: false` inside `ui sidebar`  `pusher` element will now show correctly
+- **Modal** - Modals now used fixed widths and not percentage widths. Widths might be slightly different.
+- **Modal** - Modal no longer observes DOM changes by default, added setting to enable
+
 ### Version 1.11.2 - March 6, 2015
 
 - **Modal** - Fixes modal `buttons` on mobile devices to not have extra bottom padding.
@@ -100,7 +117,7 @@
 
 ### Version 0.10.3 - Dec 22, 2013
 
-- **Modal** - Fixes element detatching sometimes in case where it is already inside a dimmer
+- **Modal** - Fixes element detaching sometimes in case where it is already inside a dimmer
 
 ### Version 0.10.1 - Dec 06, 2013
 
