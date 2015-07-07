@@ -1,4 +1,4 @@
-### Version 2.0.1 - June 30, 2015
+### Version 2.0.1 - July 6, 2015
 
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
 - **Modal** - Removed legacy JS animation settings still accidentally in docs

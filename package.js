@@ -2,7 +2,7 @@
 Package.describe({
   name    : 'semantic:ui-modal',
   summary : 'Semantic UI - Modal: Single component release',
-  version : '2.0.1',
+  version : '2.0.2',
   git     : 'git://github.com/Semantic-Org/UI-Modal.git',
 });
 
