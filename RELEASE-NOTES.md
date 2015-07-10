@@ -1,3 +1,7 @@
+### Version 2.0.3 - July 8, 2015
+
+- **Modal** - Modal that is larger than page height will now correctly reset body height on remove [#2576](https://github.com/Semantic-Org/Semantic-UI/issues/2576)
+
 ### Version 2.0.1 - July 6, 2015
 
 - **Modal** - `scrolling modal` now correctly inherits rules so that it appears at top of screen on mobile
