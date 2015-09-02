@@ -1,3 +1,8 @@
+#### Bugs
+
+- **Modal** - Fix autofocus setting in modal not working due to improper selector [#2737](https://github.com/Semantic-Org/Semantic-UI/issues/2737)
+- **Modal** - Increased `close` specificity, modal will now only close on `> .close` [#2736](https://github.com/Semantic-Org/Semantic-UI/issues/2736)
+
 ### Version 2.0.4 - July 17, 2015
 
 - **Modal** - Modal `action` now uses a more specific selector to prevent modifying `comment action`

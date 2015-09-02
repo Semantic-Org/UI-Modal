@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.8 - Modal
+ * # Semantic UI 2.0.7 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -342,7 +342,9 @@ module.exports = function(parameters) {
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
-                      module.set.autofocus();
+                      if(settings.autofocus) {
+                        module.set.autofocus();
+                      }
                       callback();
                     }
                   })
@@ -563,17 +565,15 @@ module.exports = function(parameters) {
 
         set: {
           autofocus: function() {
-            if(settings.autofocus) {
-              var
-                $inputs    = $module.filter(':input').filter(':visible'),
-                $autofocus = $inputs.filter('[autofocus]'),
-                $input     = ($autofocus.length > 0)
-                  ? $autofocus.first()
-                  : $inputs.first()
-              ;
-              if($input.length > 0) {
-                $input.focus();
-              }
+            var
+              $inputs    = $module.find(':input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $inputs.first()
+            ;
+            if($input.length > 0) {
+              $input.focus();
             }
           },
           clickaway: function() {
@@ -867,7 +867,7 @@ _module.exports.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '.close',
+    close    : '> .close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
