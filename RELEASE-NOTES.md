@@ -1,7 +1,12 @@
+### Version 2.2.0 - June 26, 2016
+
+- **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted [#3665](https://github.com/Semantic-Org/Semantic-UI/issues/3665) **Thanks @larsbo**
+- **Modal/Dimmer** - Fixed issue with `destroy` not properly removing events from dimmer [#3200](https://github.com/Semantic-Org/Semantic-UI/issues/3200)
+
 ### Version 2.1.5 - Nov 1, 2015
 
 - **Modal** - `onHide` callback can now cancel event by returning false [#3168](https://github.com/Semantic-Org/Semantic-UI/issues/3168) **Thanks @mdehoog**
-- **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query [#3180](https://github.com/Semantic-Org/Semantic-UI/issues/3180) **THanks @mdehoog**
+- **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query [#3180](https://github.com/Semantic-Org/Semantic-UI/issues/3180) **Thanks @mdehoog**
 
 #### Bugs
 
@@ -219,7 +224,7 @@
 
 ### Version 0.2.3 - Sep 28, 2013
 
-- Fixes issues with modal not swapping to absoultely positioned from fixed when content cannot fit in viewport
+- Fixes issues with modal not swapping to absolutely positioned from fixed when content cannot fit in viewport
 
 ### Version 0.2.2 - Sep 28, 2013
 

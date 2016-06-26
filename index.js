@@ -1,17 +1,23 @@
 /*!
- * # Semantic UI 2.1.7 - Modal
+ * # Semantic UI 2.2.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 var _module = module;
 module.exports = function(parameters) {
@@ -67,7 +73,7 @@ module.exports = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
-        elementNamespace,
+        elementEventNamespace,
         id,
         observer,
         module
@@ -135,7 +141,7 @@ module.exports = function(parameters) {
           },
           id: function() {
             id = (Math.random().toString(16) + '000000000').substr(2,8);
-            elementNamespace = '.' + id;
+            elementEventNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
           }
         },
@@ -146,7 +152,8 @@ module.exports = function(parameters) {
             .removeData(moduleNamespace)
             .off(eventNamespace)
           ;
-          $window.off(elementNamespace);
+          $window.off(elementEventNamespace);
+          $dimmer.off(elementEventNamespace);
           $close.off(eventNamespace);
           $context.dimmer('destroy');
         },
@@ -207,7 +214,7 @@ module.exports = function(parameters) {
               .on('click' + eventNamespace, selector.deny, module.event.deny)
             ;
             $window
-              .on('resize' + elementNamespace, module.event.resize)
+              .on('resize' + elementEventNamespace, module.event.resize)
             ;
           }
         },
@@ -497,7 +504,7 @@ module.exports = function(parameters) {
           clickaway: function() {
             if(settings.closable) {
               $dimmer
-                .off('click' + elementNamespace)
+                .off('click' + elementEventNamespace)
               ;
             }
           },
@@ -582,7 +589,7 @@ module.exports = function(parameters) {
           clickaway: function() {
             if(settings.closable) {
               $dimmer
-                .on('click' + elementNamespace, module.event.click)
+                .on('click' + elementEventNamespace, module.event.click)
               ;
             }
           },
@@ -646,7 +653,12 @@ module.exports = function(parameters) {
             $.extend(true, settings, name);
           }
           else if(value !== undefined) {
-            settings[name] = value;
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
           }
           else {
             return settings[name];
@@ -664,7 +676,7 @@ module.exports = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -675,7 +687,7 @@ module.exports = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -686,8 +698,10 @@ module.exports = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -821,6 +835,7 @@ _module.exports.settings = {
   name           : 'Modal',
   namespace      : 'modal',
 
+  silent         : false,
   debug          : false,
   verbose        : false,
   performance    : true,
