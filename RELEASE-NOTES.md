@@ -1,3 +1,7 @@
+### Version 2.2.2 - July 07, 2016
+
+- **Dimmer/Modal** - Fixed a bug which could cause a modal's dimmer to not obey `inverted: true` or `blurring: true` when initializing modals with *then afterwards* without either setting.
+
 ### Version 2.2.0 - June 26, 2016
 
 - **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted [#3665](https://github.com/Semantic-Org/Semantic-UI/issues/3665) **Thanks @larsbo**
