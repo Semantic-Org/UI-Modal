@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Modal
+ * # Semantic UI 2.2.3 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -346,7 +346,9 @@ module.exports = function(parameters) {
                     useFailSafe : true,
                     onComplete : function() {
                       settings.onVisible.apply(element);
-                      module.add.keyboardShortcuts();
+                      if(settings.keyboardShortcuts) {
+                        module.add.keyboardShortcuts();
+                      }
                       module.save.focus();
                       module.set.active();
                       if(settings.autofocus) {
@@ -392,7 +394,9 @@ module.exports = function(parameters) {
                     if(!module.others.active() && !keepDimmed) {
                       module.hideDimmer();
                     }
-                    module.remove.keyboardShortcuts();
+                    if(settings.keyboardShortcuts) {
+                      module.remove.keyboardShortcuts();
+                    }
                   },
                   onComplete : function() {
                     settings.onHidden.call(element);
@@ -576,7 +580,7 @@ module.exports = function(parameters) {
         set: {
           autofocus: function() {
             var
-              $inputs    = $module.find(':input').filter(':visible'),
+              $inputs    = $module.find('[tabindex], :input').filter(':visible'),
               $autofocus = $inputs.filter('[autofocus]'),
               $input     = ($autofocus.length > 0)
                 ? $autofocus.first()
@@ -855,6 +859,8 @@ _module.exports.settings = {
     useCSS   : true
   },
 
+  // whether to use keyboard shortcuts
+  keyboardShortcuts: true,
 
   context    : 'body',
 

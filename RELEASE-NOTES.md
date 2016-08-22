@@ -1,3 +1,8 @@
+### Version 2.2.3 - August 21, 2016
+
+- **Modal** - Modal now includes setting to enable/disable keyboard shortcuts
+- **Modal** - Modal will now focus first tabable element, not just `input` [#4370](https://github.com/Semantic-Org/Semantic-UI/issues/4370)
+
 ### Version 2.2.2 - July 07, 2016
 
 - **Dimmer/Modal** - Fixed a bug which could cause a modal's dimmer to not obey `inverted: true` or `blurring: true` when initializing modals with *then afterwards* without either setting.
