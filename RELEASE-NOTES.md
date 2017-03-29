@@ -1,3 +1,7 @@
+### Version 2.2.10 - March 28, 2017
+
+- **Modal** - `onDeny` and `onApprove` callbacks can no longer occur multiple times if you rapidly click a approve/deny button in a. #4479
+
 ### Version 2.2.3 - August 21, 2016
 
 - **Modal** - Modal now includes setting to enable/disable keyboard shortcuts
