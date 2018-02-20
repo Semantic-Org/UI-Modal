@@ -1,6 +1,13 @@
+### Version 2.3.0 - Feb 19, 2018
+
+- **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
+- **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
+- **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** [#3396](https://github.com/Semantic-Org/Semantic-UI/issues/3396)
+- **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
+
 ### Version 2.2.14 - Jan 29, 2018
 
-- **Modal** - Fixes issue where an oversized modal would appear behind an existing modal when using `allowMultiple: true` and a second modal that is larger than the sreen height. [#2423](https://github.com/Semantic-Org/Semantic-UI/issues/2423)
+- **Modal** - Fixes issue where an oversized modal would appear behind an existing modal when using `allowMultiple: true` and a second modal that is larger than the screen height. [#2423](https://github.com/Semantic-Org/Semantic-UI/issues/2423)
 
 ### Version 2.2.12 - Aug 07, 2017
 

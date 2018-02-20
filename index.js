@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.14 - Modal
+ * # Semantic UI 2.3.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -109,6 +109,10 @@ module.exports = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+                variation  : settings.centered
+                  ? false
+                  : 'top aligned'
+                ,
                 dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
@@ -166,7 +170,6 @@ module.exports = function(parameters) {
           module.cacheSizes();
           module.set.screenHeight();
           module.set.type();
-          module.set.position();
         },
 
         refreshModals: function() {
@@ -239,21 +242,23 @@ module.exports = function(parameters) {
             module.hide();
           },
           click: function(event) {
+            if(!settings.closable) {
+              module.verbose('Dimmer clicked but closable setting is disabled');
+              return;
+            }
             var
               $target   = $(event.target),
               isInModal = ($target.closest(selector.modal).length > 0),
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
-            if(!isInModal && isInDOM) {
+            if(!isInModal && isInDOM && module.is.active()) {
               module.debug('Dimmer clicked, hiding all modals');
-              if( module.is.active() ) {
-                module.remove.clickaway();
-                if(settings.allowMultiple) {
-                  module.hide();
-                }
-                else {
-                  module.hideAll();
-                }
+              module.remove.clickaway();
+              if(settings.allowMultiple) {
+                module.hide();
+              }
+              else {
+                module.hideAll();
               }
             }
           },
@@ -321,7 +326,6 @@ module.exports = function(parameters) {
 
             module.showDimmer();
             module.cacheSizes();
-            module.set.position();
             module.set.screenHeight();
             module.set.type();
             module.set.clickaway();
@@ -488,7 +492,13 @@ module.exports = function(parameters) {
 
         save: {
           focus: function() {
-            $focusedElement = $(document.activeElement).blur();
+            var
+              $activeElement = $(document.activeElement),
+              inCurrentModal = $activeElement.closest($module).length > 0
+            ;
+            if(!inCurrentModal) {
+              $focusedElement = $(document.activeElement).blur();
+            }
           }
         },
 
@@ -505,11 +515,9 @@ module.exports = function(parameters) {
             $module.removeClass(className.active);
           },
           clickaway: function() {
-            if(settings.closable) {
-              $dimmer
-                .off('click' + elementEventNamespace)
-              ;
-            }
+            $dimmer
+              .off('click' + elementEventNamespace)
+            ;
           },
           bodyStyle: function() {
             if($body.attr('style') === '') {
@@ -607,11 +615,9 @@ module.exports = function(parameters) {
             }
           },
           clickaway: function() {
-            if(settings.closable) {
-              $dimmer
-                .on('click' + elementEventNamespace, module.event.click)
-              ;
-            }
+            $dimmer
+              .on('click' + elementEventNamespace, module.event.click)
+            ;
           },
           dimmerSettings: function() {
             if($.fn.dimmer === undefined) {
@@ -622,8 +628,11 @@ module.exports = function(parameters) {
               defaultSettings = {
                 debug      : settings.debug,
                 dimmerName : 'modals',
-                variation  : false,
                 closable   : 'auto',
+                variation  : settings.centered
+                  ? false
+                  : 'top aligned'
+                ,
                 duration   : {
                   show     : settings.duration,
                   hide     : settings.duration
@@ -677,25 +686,6 @@ module.exports = function(parameters) {
             else {
               module.verbose('Modal cannot fit on screen setting to scrolling');
               module.set.scrolling();
-            }
-          },
-          position: function() {
-            module.verbose('Centering modal on page', module.cache);
-            if(module.can.fit()) {
-              $module
-                .css({
-                  top: '',
-                  marginTop: module.cache.topOffset
-                })
-              ;
-            }
-            else {
-              $module
-                .css({
-                  marginTop : '',
-                  top       : $document.scrollTop()
-                })
-              ;
             }
           },
           undetached: function() {
@@ -905,6 +895,8 @@ _module.exports.settings = {
 
   inverted       : false,
   blurring       : false,
+
+  centered       : true,
 
   dimmerSettings : {
     closable : false,
