@@ -1,4 +1,9 @@
-### Version 2.3.0 - Feb 19, 2018
+### Version 2.3.1 - Mar 19, 2018
+
+> **A Special Message about Flex Modals**
+> There will be an update shortly to resolve issues related to flex modals when using multiple modals and `detachable: false`, in order to not hold up this release, we've decided to move forward without a fix.
+
+### Version 2.3.0 - Feb 20, 2018
 
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
