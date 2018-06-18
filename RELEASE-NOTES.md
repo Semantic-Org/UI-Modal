@@ -1,4 +1,9 @@
-### Version 2.3.1 - Mar 19, 2018
+### Version 2.3.2 - June 18, 2018
+
+- **Modal** - Modal and Dimmer now prevent background page from scrolling on mobile or where touch events are present
+- **Modal** - Modal will not refocus a field if field is already focused **Thanks @nikolaybobrovskiy** [#6301](https://github.com/Semantic-Org/Semantic-UI/issues/6301)
+
+### Version 2.3.1 - Mar 18, 2018
 
 > **A Special Message about Flex Modals**
 > There will be an update shortly to resolve issues related to flex modals when using multiple modals and `detachable: false`, in order to not hold up this release, we've decided to move forward without a fix.
