@@ -1,3 +1,10 @@
+### Version 2.4.0 - Sep 17, 2018
+
+- **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox. Modals will fall back to JS position when `detachable: false` is used or with IE11/Edge (Absolutely positioned elements inside flex containers in IE behave differently).
+- **Modal** - Fixed issue where `scrolling modal` would not allow for scrolling with touch devices. [#6449](https://github.com/Semantic-Org/Semantic-UI/issues/6449)
+- **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
+- **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with `position: fixed` [#6520](https://github.com/Semantic-Org/Semantic-UI/issues/6520)
+
 ### Version 2.3.2 - June 18, 2018
 
 - **Modal** - Modal and Dimmer now prevent background page from scrolling on mobile or where touch events are present
