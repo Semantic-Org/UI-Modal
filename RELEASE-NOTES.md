@@ -1,3 +1,7 @@
+### Version 2.4.1 - Oct 13, 2018
+
+- **Modal** - Fixed `fullscreen modal` having incorrect left offset with flex modals [#6587](https://github.com/Semantic-Org/Semantic-UI/issues/6587)
+
 ### Version 2.4.0 - Sep 17, 2018
 
 - **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox. Modals will fall back to JS position when `detachable: false` is used or with IE11/Edge (Absolutely positioned elements inside flex containers in IE behave differently).
