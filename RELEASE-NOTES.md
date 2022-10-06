@@ -1,3 +1,7 @@
+### Version 2.5.0 - Oct 6, 2022
+
+- **Modal** - Fixed mutation observer was not properly disconnected
+
 ### Version 2.4.1 - Oct 13, 2018
 
 - **Modal** - Fixed `fullscreen modal` having incorrect left offset with flex modals [#6587](https://github.com/Semantic-Org/Semantic-UI/issues/6587)
